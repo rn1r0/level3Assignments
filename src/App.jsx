@@ -1,23 +1,19 @@
-import './App.css'
-import VacationCard from './component/VacationCard.jsx';
-import vacationSpots from './data.jsx';
+import './App.css';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import BlogList from './components/BlogList';
+import data from './data';
 
-const App = () => {
+function App() {
   return (
-    <div className="container">
-      <div className="row">
-        {vacationSpots.map((spot, index) => (
-          <div className="col-md-4 mb-4" key={index}>
-            <VacationCard
-              place={spot.place}
-              price={spot.price}
-              timeToGo={spot.timeToGo}
-            />
-          </div>
-        ))}
-      </div>
+    <div>
+      <Header />
+      <Navbar />
+      <BlogList blogData={data} />
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;
