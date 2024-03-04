@@ -1,30 +1,68 @@
+const friends = [
+  {
+    name: "Ben",
+    age: 29,
+    pets: [
+      {
+        name: "spot",
+        breed: "tabby",
+      },
+      {
+        name: "John Johnson",
+        breed: "husky",
+      },
+      {
+        name: "Bear the bear",
+        breed: "Grizzly",
+      },
+    ],
+  },
+  {
+    name: "Bob",
+    age: 31,
+    pets: [
+      {
+        name: "Sally",
+        breed: "Australian Shepard",
+      },
+    ],
+  },
+  {
+    name: "Marcus",
+    age: 25,
+    pets: [
+      {
+        name: "Indy",
+        breed: "Akita",
+      },
+      {
+        name: "Anna",
+        breed: "persian cat",
+      },
+    ],
+  },
+  {
+    name: "Jacob",
+    age: 20,
+    pets: [
+      {
+        name: "fluffy",
+        breed: "sphynx cat",
+      },
+      {
+        name: "patches",
+        breed: "sphynx cat",
+      },
+      {
+        name: "tiger",
+        breed: "sphynx cat",
+      },
+      {
+        name: "oscar",
+        breed: "sphynx cat",
+      },
+    ],
+  },
+];
 
-const data = [
-    {
-      title: "Man must explore, and this is exploration at its greatest",
-      subTitle: "Problems look mighty small from 150 miles up",
-      author: "Start Bootstrap",
-      date: "September 24, 2019"
-    },
-    {
-      title: "I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.",
-      subTitle: "",
-      author: "Start Bootstrap",
-      date: "September 18, 2019"
-    },
-    {
-      title: "Science has not yet mastered prophecy",
-      subTitle: "We predict too much for the next year and yet far too little for the next ten.",
-      author: "Start Bootstrap",
-      date: "August 24, 2019"
-    },
-    {
-      title: "Failure is not an option",
-      subTitle: "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
-      author: "Start Bootstrap",
-      date: "July 8, 2019"
-    }
-  ];
-  
-  export default data;
-  
+export default friends;

@@ -1,17 +1,12 @@
-import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import BlogList from './components/BlogList';
-import data from './data';
+import './App.css'
+import FriendList from './components/FriendList.jsx';
+import friendsData from './data.jsx';
 
 function App() {
   return (
     <div>
-      <Header />
-      <Navbar />
-      <BlogList blogData={data} />
-      <Footer />
+      <h1>My Friends and Their Pets</h1>
+      <FriendList friends={friendsData} />
     </div>
   );
 }
