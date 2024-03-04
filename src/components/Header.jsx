@@ -1,19 +1,12 @@
-import HOME from '../images/home-bg.png'
+import TROLL from "../images/troll-face.png"
 
-const Header = () => (
+export default function Header() {
+  return (
     <header className="header">
-      <div className="header-bg"></div> {HOME}
-      <div className="container">
-        <div className="row">
-          <div className="column">
-            <div className="site-heading">
-              <h1>Clean Blog</h1>
-              <span className="subheading">A Blog Theme by Start Bootstrap</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img src={TROLL} className="header--image"/>
+      <h2 className="header--title">Meme Generator</h2>
+      <h4 className="header--project">React Course - Project 3</h4>
     </header>
   );
-  
-  export default Header;
+}
+

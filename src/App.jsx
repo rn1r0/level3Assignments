@@ -1,14 +1,15 @@
 import './App.css'
-import FriendList from './components/FriendList.jsx';
-import friendsData from './data.jsx';
+import Header from './components/Header.jsx'
+import Meme from './components/Meme.jsx'
 
-function App() {
+export default function App() {
+
   return (
     <div>
-      <h1>My Friends and Their Pets</h1>
-      <FriendList friends={friendsData} />
+      <Header />
+      <Meme />
     </div>
-  );
+  )
 }
 
-export default App;
+
