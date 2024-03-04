@@ -1,71 +1,135 @@
-import React from 'react';
-import './App.css';
-import Square from './components/Square.jsx';
-import sound1 from './sounds/darkside.mp3';
-import sound2 from './sounds/lolianthem.mp3';
-import sound3 from './sounds/zelda.mp3';
-import sound4 from './sounds/viviz.mp3';
+import './App.css'
+import React from 'react'
 
-function App() {
-  const [colors, setColors] = React.useState(["white", "white", "white", "white"])
+export default function App() {
+  const [formData, setFormData] = React.useState(
+      {
+        firstName: "",
+        lastName: "", 
+        email: "", 
+        comments: "",
+        isFriendly: true,
+        employment: "",
+        favColor: ""
+      }
+    )
 
-  const sounds = [sound1, sound2, sound3, sound4]
-
-  const playRandomSound = () => {
-    const randomIndex = Math.floor(Math.random() * sounds.length)
-    const audio = new Audio(sounds[randomIndex])
-    audio.play()
+  function handleChange(event) {
+      const {name, value, type, checked} = event.target
+      setFormData(prevFormData => {
+        return {
+          ...prevFormData,
+          [name]: type === "checkbox" ? checked : value
+        }
+      })
   }
 
-  const handleSquareColorChange = (index, newColor) => {
-    const newColors = [...colors]
-    newColors[index] = newColor
-    setColors(newColors)
-  }
-
-  const handleColorChange = () => {
-    const newColors = colors.map(color => (color === 'white' ? 'black' : 'white'));
-    setColors(newColors);
-  }
-
-  const handleTopHalfPurple = () => {
-    const newColors = [...colors]
-    newColors[0] = newColors[1] = "purple"
-    setColors(newColors)
-  }
-
-  const handleBottomLeftBlue = () => {
-    const newColors = [...colors]
-    newColors[2] = "blue"
-    setColors(newColors)
-  }
-
-  const handleBottomRightBlue = () => {
-    const newColors = [...colors]
-    newColors[3] = "blue"
-    setColors(newColors)
+  function handleSubmit(event) {
+      event.preventDefault()
+      // submitToApi(formData)
+      console.log(formData)
   }
 
   return (
-    <div className="color-board">
-      <div className="square-container">
-        {colors.map((color, index) => (
-          <Square
-            key={index}
-            color={color}
-            onClick={() => handleSquareColorChange(index, 'green')} // Change 'green' to any other color if needed
+      <form onSubmit={handleSubmit}>
+          <input
+              type="text"
+              placeholder="First Name"
+              onChange={handleChange}
+              name="firstName"
+              value={formData.firstName}
           />
-        ))}
-      </div>
-      <div className="buttons-container">
-        <button onClick={handleColorChange}>Change All Squares</button>
-        <button onClick={handleTopHalfPurple}>Top Half Purple</button>
-        <button onClick={handleBottomLeftBlue}>Bottom Left Blue</button>
-        <button onClick={handleBottomRightBlue}>Bottom Right Blue</button>
-        <button onClick={playRandomSound}>Play Random Sound</button>
-      </div>
-    </div>
+          <input
+              type="text"
+              placeholder="Last Name"
+              onChange={handleChange}
+              name="lastName"
+              value={formData.lastName}
+          />
+          <input
+              type="email"
+              placeholder="Email"
+              onChange={handleChange}
+              name="email"
+              value={formData.email}
+          />
+          <textarea 
+              value={formData.comments}
+              placeholder="Comments"
+              onChange={handleChange} 
+              name="comments"
+          />
+          <input 
+              type="checkbox"
+              id="isFriendly"
+              checked={formData.isFriendly}
+              onChange={handleChange}
+              name="isFriendly"
+          />
+          <label htmlFor="isFriendly">Are you friendly?</label>
+          <br />
+          <br />
+
+          <fieldset>
+                <legend>Current employment status</legend>
+                
+                <input 
+                    type="radio"
+                    id="unemployed"
+                    name="employment"
+                    value="unemployed"
+                    checked={formData.employment === "unemployed"}
+                    onChange={handleChange}
+                />
+                <label htmlFor="unemployed">Unemployed</label>
+                <br />
+                
+                <input 
+                    type="radio"
+                    id="part-time"
+                    name="employment"
+                    value="part-time"
+                    checked={formData.employment === "part-time"}
+                    onChange={handleChange}
+                />
+                <label htmlFor="part-time">Part-time</label>
+                <br />
+                
+                <input 
+                    type="radio"
+                    id="full-time"
+                    name="employment"
+                    value="full-time"
+                    checked={formData.employment === "full-time"}
+                    onChange={handleChange}
+                />
+                <label htmlFor="full-time">Full-time</label>
+                <br />
+                
+            </fieldset>
+            <br />
+
+            <label htmlFor="favColor">What is your favorite color?</label>
+            <br />
+            <select 
+                id="favColor"
+                value={formData.favColor}
+                onChange={handleChange}
+                name="favColor"
+            >
+                <option value="">-- Choose --</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="indigo">Indigo</option>
+                <option value="violet">Violet</option>
+            </select>
+            <br />
+            <br />
+
+            <button></button>
+      </form>
   )
 }
-
-export default App
