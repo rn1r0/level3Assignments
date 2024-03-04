@@ -1,7 +1,26 @@
-* {
-  box-sizing: border-box;
+/* Button.css */
+
+.button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-body {
-  font-family: "Karla", sans-serif;
+.button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Square.css */
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid black;
 }
